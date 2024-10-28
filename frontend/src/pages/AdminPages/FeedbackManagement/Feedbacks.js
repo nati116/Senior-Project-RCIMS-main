@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../Styling/AdminPageStyles/FeedbacksStyles.css";
+import "../AdminPageStyles/FeedbacksStyles.css";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { IconButton } from "@mui/material";
+import { IconButton , Paper, Card} from "@mui/material";
 
 const Feedbacks = () => {
     const [feedbacks, setFeedbacks] = useState([]);
@@ -49,6 +49,7 @@ const Feedbacks = () => {
         switch (type.toLowerCase()) {
             case "complaint":
                 return "var(--color-text-complaint)";
+                
             default:
                 return "var(--color-text-other)";
         }
@@ -99,13 +100,15 @@ const Feedbacks = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="feedbacks-container">
+        <div className="w-full bg-white m-30 p-20 ">
+            
             {viewMode === "list" ? (
                 <>
-                    <h2>User Feedbacks</h2>
-                    <form className="feedback-filters">
-                        <div>
-                            <select
+                <div className="header">
+                        <h2 className="font-bold text-xl align-center">User Feedbacks</h2>
+                        <div className="flex align-center justify-between">
+                          
+                        <select className="mr-10 "
                                 value={statusFilter}
                                 onChange={(e) =>
                                     setStatusFilter(e.target.value)
@@ -115,7 +118,7 @@ const Feedbacks = () => {
                                 <option value="active">Active</option>
                                 <option value="read">Read</option>
                             </select>
-                            <select
+                            <select className="mr-10"
                                 value={typeFilter}
                                 onChange={(e) => setTypeFilter(e.target.value)}
                             >
@@ -125,7 +128,7 @@ const Feedbacks = () => {
                                 <option value="suggestion">Suggestion</option>
                             </select>
                         </div>
-                    </form>
+                    </div>
 
                     <div className="feedbacks-content">
                         <div className="feedbacks-list-container">
@@ -144,7 +147,7 @@ const Feedbacks = () => {
                                                     : ""
                                             }`}
                                             style={{
-                                                border: `1px solid ${getTypeColor(
+                                                border: `2px solid ${getTypeColor(
                                                     feedback.type,
                                                     feedback.status
                                                 )}`,
@@ -217,18 +220,23 @@ const Feedbacks = () => {
                 </>
             ) : (
                 <div className="feedback-details-view">
-                    <div className="feedback-details-header">
+                    <div className="header">
                         <IconButton onClick={handleBackToList} className="back-button">
                             <ArrowBackIcon />
                         </IconButton>
-                        <h3>Feedback Details</h3>
+                        <h3 className="patient-name">Feedback Details</h3>
                     </div>
+                    
+                    <div className="flex justify-between px-10 py-6">
+
                     <div className="feedback-type-badge">
                         {selectedFeedback.type}
                     </div>
                     <div className="feedback-date">
                         {formatDate(selectedFeedback.date)}
                     </div>
+                    </div>
+                    
                     <div className="feedback-section">
                         <div className="feedback-section-title">
                             Sender Information
@@ -250,6 +258,7 @@ const Feedbacks = () => {
                     </div>
                 </div>
             )}
+          
         </div>
     );
 };

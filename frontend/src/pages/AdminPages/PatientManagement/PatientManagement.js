@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../Styling/AdminPageStyles/PatientManagement.css";
+import "../AdminPageStyles/PatientManagement.css";
 import ListOfPatients from "./ListOfPatients"; 
 import AddPatient from "./AddPatient";
 import PatientsToDischarge from "./PatientsToDischarge";

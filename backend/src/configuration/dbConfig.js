@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://millionmesfind:test-password@test-cluster.esbxt.mongodb.net/?retryWrites=true&w=majority&appName=TEST-CLUSTER', {
+const db = 'mongodb+srv://nathnaelbassa:nati1234@seniorcluster.e5lda.mongodb.net/?retryWrites=true&w=majority&appName=seniorCluster';
+mongoose.connect(db, {
     serverSelectionTimeoutMS: 5000
 });
 

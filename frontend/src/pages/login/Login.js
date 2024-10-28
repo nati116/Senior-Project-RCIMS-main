@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../Styling/Login.css"; // Import the CSS file
 import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2'
 import logo from "./RCMIS-1-01.svg";
+import {toast} from "sonner";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -23,12 +23,11 @@ const Login = () => {
         event.preventDefault();
 
         if (!formData.phoneNumber || !formData.password) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Please enter both phone number and password.',
-                icon: 'error',
-                confirmButtonText: 'Back'
-            });
+           
+            toast.error('Please Enter Both phone and password',{
+                position: 'top-center',
+                duration: 5000 
+              });
             return;
         }
 
@@ -47,25 +46,30 @@ const Login = () => {
                 localStorage.setItem("user", JSON.stringify(result.user));
                 localStorage.setItem("token", result.token);
             } else {
-                alert(result.message || "Login failed. Please check your credentials and try again.");
-                // Swal.fire({
-                    
-                //     title: 'Error!',
-                //     text: "An error occurred. Please try again later.",
-                //     icon: 'error',
-                //     confirmButtonText: 'Back'
-                // }); 
+                toast.warning(result.message || "Login failed. Please check your credentials and try again.");
+                // toast.custom((t) => (
+                //         <div >
+                //             <div>
+                //             This is a custom component 
+                //             </div>
+                //             <div className="flex justify-between">
+                //                 <button onClick={() => toast.dismiss(t)}>close</button>
+                //                 <button onClick={() => toast.dismiss(t)}>close</button>
+
+                //             </div>
+                          
+                //         </div>,{
+                //         }
+                //       ));
+
+                };
+
                 
             }
-        } catch (error) {
+         catch (error) {
             console.error("Login error:", error);
-            // alert("An error occurred. Please try again later.");
-            Swal.fire({
-                title: 'Error!',
-                text: "An error occurred. Please try again later.",
-                icon: 'error',
-                confirmButtonText: 'Back'
-            });            
+            toast.error("An error occurred. Please try again later.");
+                        
         }
     };
 

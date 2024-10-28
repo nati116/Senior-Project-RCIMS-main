@@ -137,7 +137,7 @@ const ShowPatientDetails = ({ patientId, onGoBack, fetchPatients }) => {
                           <p>History</p> */}
 
                           {/* New View History Button */}
-                          <button className="CareGiver-button" onClick={() => setShowHistory(true)}>
+                          <button className="w-full bg--color-primary" onClick={() => setShowHistory(true)}>
                             View History
                           </button>
 

@@ -8,7 +8,7 @@ import GeneralReport from "./GeneralReport";
 import Feedback from "./Feedback";
 import Help from "../ProfessionalPages/Help";
 import "./PatientPagesStyles/PatientDashboard.css";
-import logo from "./RCMIS-1-01.svg";
+import logo from "../../assets/icons/RCMIS-1-01.svg";
 
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import DashboardIcon from '@mui/icons-material/Dashboard';

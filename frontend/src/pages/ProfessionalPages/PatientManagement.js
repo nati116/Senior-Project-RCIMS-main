@@ -151,7 +151,7 @@ const ListOfPatients = ({ patients, onViewPatient }) => {
                 <TableCell>{patient.patientType}</TableCell>
 
                 <TableCell>
-                <button className="CareGiver-button" onClick={() => onViewPatient(patient._id)}>
+                <button className="mt-0" onClick={() => onViewPatient(patient._id)}>
                   View Details
                 </button>                 
                 </TableCell>

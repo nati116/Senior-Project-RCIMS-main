@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Styling/AdminPageStyles/ProfessionalManagementStyles/ProfessionalReport.css";
+import "../AdminPageStyles/ProfessionalManagementStyles/ProfessionalReport.css";
 
 const ProfessionalReports = () => {
   return (

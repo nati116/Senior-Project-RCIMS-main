@@ -10,7 +10,7 @@ import {
     Box,
 } from "@mui/material";
 import axios from "axios";
-import "../../Styling/AdminPageStyles/ListOfPatients.css";
+import "../AdminPageStyles/ListOfPatients.css";
 import CaregiverDetail from "./CaregiverDetail";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";

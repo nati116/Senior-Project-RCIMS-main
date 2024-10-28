@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
-import "../../Styling/AdminPageStyles/AddPatient.css";
+import "../AdminPageStyles/AddPatient.css";
 
 function AddPatientForm() {
   const [step, setStep] = useState(1);
@@ -254,7 +254,7 @@ function PersonalInfo({ formData, handleChange, nextStep, errors }) {
                 onChange={handleChange("name")}
                 required
                 fullWidth
-                sx={{paddingRight:"5px"}}
+                sx={{paddingRight:"20px", marginBottom:"10px"}}
               />
 
                     {/* Father's Name */}
@@ -265,9 +265,11 @@ function PersonalInfo({ formData, handleChange, nextStep, errors }) {
                 onChange={handleChange("fatherName")}
                 fullWidth
                 required
+                sx={{paddingRight:"20px", marginBottom:"10px"}}
+
               />  
             </div>
-            <div className="container">
+            <div className="container mb-20">
 
               {/* Grandfather's Name */}
               <TextField
@@ -276,7 +278,7 @@ function PersonalInfo({ formData, handleChange, nextStep, errors }) {
                 value={formData.grandfatherName}
                 onChange={handleChange("grandfatherName")}
                 fullWidth
-                sx={{paddingRight:"25px"}}
+                sx={{paddingRight:"20px", marginBottom:"10px"}}
 
                 required
               />
@@ -291,6 +293,8 @@ function PersonalInfo({ formData, handleChange, nextStep, errors }) {
                 // helperText={error.phoneNumber}
                 required
                 fullWidth
+                sx={{paddingRight:"20px", marginBottom:"10px"}}
+
               />
             </div>
 
@@ -306,15 +310,15 @@ function PersonalInfo({ formData, handleChange, nextStep, errors }) {
                   InputLabelProps={{ shrink: true }}
                   required
                   fullWidth
-                  sx={{paddingLeft:"10px"}}
+                  sx={{paddingRight:"20px", marginBottom:"10px"}}
 
                   
                 />
               {/* Gender */}
               <FormControl 
               fullWidth  
-              sx={{paddingRight:"10px"}}
-                required>
+              sx={{paddingRight:"20px", marginBottom:"10px"}}
+              required>
                 <InputLabel>Gender</InputLabel>
                 <Select
                   name="gender"
@@ -336,11 +340,13 @@ function PersonalInfo({ formData, handleChange, nextStep, errors }) {
                     onChange={handleChange("address")}
                     fullWidth
                     required
+                    sx={{paddingRight:"20px", marginBottom:"10px"}}
+
                   />                      
             </div>
             <button 
             type="submit"
-            className="w-3/4"
+            className="w-3/4 justify-self-end	"
             onClick={nextStep}>
             Next
            </button>
@@ -444,6 +450,8 @@ function PatientInfo({ formData, handleChange, prevStep, nextStep, errors }) {
                     onChange={handleChange("roomNumber")}
                     fullWidth
                     required
+                    sx={{paddingRight:"10px"}}
+
                   />
                  {/* Bed Number */}
                  <TextField
@@ -661,7 +669,9 @@ function CaregiverInfo({ formData, handleChange, prevStep, handleSubmit,setSkipC
 
         <div className="container">
                         {/* CareGiver's Phone Number */}
-                        <TextField
+                  <TextField
+                            sx={{paddingRight:"10px"}}
+
                 label="Caregiver Phone Number"
                 name="Caregiver Phone Number"
                 value={formData.caregiverPhoneNumber}

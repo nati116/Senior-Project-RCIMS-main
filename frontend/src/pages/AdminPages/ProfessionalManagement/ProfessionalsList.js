@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../../Styling/AdminPageStyles/ProfessionalManagementStyles/ProfessionalsList.css";
+import "../AdminPageStyles/ProfessionalManagementStyles/ProfessionalsList.css";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -13,10 +13,6 @@ import {
     TableRow,
     Checkbox,
     TextField,
-    Button,
-    IconButton,
-    InputAdornment,
-    Pagination,
     Select,
     MenuItem,
     Paper,
@@ -484,13 +480,13 @@ const ProfessionalsList = () => {
                         </div>
                         <div class="header-actions">
                             <button
-                                class="btn-edit w-full flex justify-center bg-gradient-to-r from-cyan-300 to-blue-800  text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                                className="w-full bg--color-primary"
                                 onClick={() => handleEdit(selectedProfessional)}
                             >
                                 Edit
                             </button>
                             <button
-                                class="btn-remove w-full flex justify-center bg-gradient-to-r from-cyan-300 to-blue-800  text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                                className="btn-remove w-full flex justify-center bg--primary"
                                 onClick={() => handleRemove(selectedProfessional._id)}
                             >
                                 Remove

@@ -168,7 +168,7 @@ const AddAppointment = () => {
               </FormControl>
 
              
-                <button type="submit" disabled={loading || !selectedPatient || !selectedSession}>
+                <button className="bg--color-primary" disabled={loading || !selectedPatient || !selectedSession}>
                     Add Appointment
                 </button>
             </form>

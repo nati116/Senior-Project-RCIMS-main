@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../../Styling/AdminPageStyles/CareGiverDetails.css";
+import "../AdminPageStyles/CareGiverDetails.css";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {
   TextField,

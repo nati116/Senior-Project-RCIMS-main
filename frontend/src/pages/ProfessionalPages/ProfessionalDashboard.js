@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from './RCMIS-1-01.svg';
+import logo from "../../assets/icons/RCMIS-1-01.svg";
 
 import "./ProfessionalStyles/professionalDashboard.css";
 import MySchedule from "./MySchedule";
@@ -9,7 +9,7 @@ import AttachPatient from "./AttachPatient";
 import PatientManagement from "./PatientManagement"; 
 import Report from "./Report"; 
 import Help from "./Help"; 
-import InfoCard from "../../MuiComponents/InfoCard";
+import InfoCard from "../../components/MuiComponents/InfoCard";
 //import Predictions from "./Predictions"; // Import Predictions Component
 
 // Icons

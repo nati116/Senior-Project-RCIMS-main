@@ -1,5 +1,5 @@
 import React from 'react';
-import CareTeamCard from './CareTeamCard';
+import CareTeamCard from './ComponentStyles/CareTeamCard.css';
 
 const CareTeam = () => {
   const team = [

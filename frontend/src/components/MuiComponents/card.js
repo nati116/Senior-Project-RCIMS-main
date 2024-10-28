@@ -1,6 +1,6 @@
 import {Box, Card, CardContent, Typography, CardActions, Button, CardMedia, IconButton} from "@mui/material";
-import Doc from './Doc1.jpg';
-import './CareTeamCard.css'; // Importing CSS for styling
+import Doc from '../../assets/images/Doc1.jpg';
+import './ComponentStyles/CareTeamCard.css';
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SendIcon from '@mui/icons-material/Send';

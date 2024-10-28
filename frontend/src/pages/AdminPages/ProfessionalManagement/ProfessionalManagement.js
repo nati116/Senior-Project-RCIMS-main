@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../Styling/AdminPageStyles/ProfessionalManagementStyles/ProfessionalManagement.css";
+import "../AdminPageStyles/ProfessionalManagementStyles/ProfessionalManagement.css";
 import ProfessionalsList from "./ProfessionalsList";
 import AddProfessional from "./AddProfessional";
 import ProfessionalReports from "./ProfessionalReports";
