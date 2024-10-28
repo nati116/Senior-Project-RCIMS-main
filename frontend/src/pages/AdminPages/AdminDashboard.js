@@ -8,6 +8,8 @@ import Report from "./Report";
 import Contact from "./Contact";
 import Help from "./Help";
 import logo from "../../assets/icons/RCMIS-1-01.svg";
+import AdminEngage from "./Engagement/AdminEngage";
+
 import {
     Table,
     TableBody,
@@ -36,6 +38,8 @@ import Calendar from "../../components/MuiComponents/calander";
 import Feedbacks from "./FeedbackManagement/Feedbacks";
 import MenuIcon from '@mui/icons-material/Menu';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+
 
 
 const AdminDashboard = ({ user }) => {
@@ -123,6 +127,9 @@ const AdminDashboard = ({ user }) => {
                     </li>
                     <li className={`menu-item ${selectedComponent === "Report" ? "active" : ""}`} onClick={() => handleNavClick("Report")}>
                         <SummarizeIcon /> <span className="menu-title">Report</span>
+                    </li>
+                    <li className={`menu-item ${selectedComponent === "Engage" ? "active" : ""}`} onClick={() => handleNavClick("Engage")}>
+                        <HandshakeIcon /><span className="menu-title">Engage</span>
                     </li>
                     <li className={`menu-item ${selectedComponent === "Feedback" ? "active" : ""}`} onClick={() => handleNavClick("Feedback")}>
                         <CommentIcon /> <span className="menu-title">Feedback</span>
@@ -263,6 +270,7 @@ const AdminDashboard = ({ user }) => {
                     {selectedComponent === "PatientManagement" && <PatientManagement />}
                     {selectedComponent === "ProfessionalManagement" && <ProfessionalManagement />}
                     {selectedComponent === "Report" && <Report />}
+                    {selectedComponent === "Engage" && <AdminEngage />}
                     {selectedComponent === "Feedback" && <Feedbacks />}
                     {selectedComponent === "Contact" && <Contact />}
                     {selectedComponent === "Help" && <Help />}

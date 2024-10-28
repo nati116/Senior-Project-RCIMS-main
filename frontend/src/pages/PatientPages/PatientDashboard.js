@@ -6,6 +6,7 @@ import Notifications from "./Notifications";
 import Messaging from "./Messaging";
 import GeneralReport from "./GeneralReport";
 import Feedback from "./Feedback";
+import Engage from "./Engage"; 
 import Help from "../ProfessionalPages/Help";
 import "./PatientPagesStyles/PatientDashboard.css";
 import logo from "../../assets/icons/RCMIS-1-01.svg";
@@ -19,6 +20,8 @@ import CommentIcon from '@mui/icons-material/Comment';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonAddDisabledIcon from '@mui/icons-material/PersonAddDisabled';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+
 
 const PatientDashboard = ({ patient, user }) => {
     const navigate = useNavigate();
@@ -62,6 +65,9 @@ const PatientDashboard = ({ patient, user }) => {
                     </li>
                     <li className={`menu-item ${selectedComponent === "Feedback" ? "active" : ""}`} onClick={() => handleNavClick("Feedback")}>
                         <CommentIcon /> <span className="menu-title">Feedback</span>
+                    </li>
+                    <li className={`menu-item ${selectedComponent === "Engage" ? "active" : ""}`} onClick={() => handleNavClick("Engage")}>
+                        <HandshakeIcon /> <span className="menu-title">Engage</span>
                     </li>
                     <li className={`menu-item ${selectedComponent === "Help" ? "active" : ""}`} onClick={() => handleNavClick("Help")}>
                         <SummarizeIcon /> <span className="menu-title">Help</span>
@@ -107,6 +113,7 @@ const PatientDashboard = ({ patient, user }) => {
                     {selectedComponent === "Notifications" && <Notifications patient={patient} />}
                     {selectedComponent === "Messaging" && <Messaging patient={patient} />}
                     {selectedComponent === "GeneralReport" && <GeneralReport patient={patient} />}
+                    {selectedComponent === "Engage" && <Engage patient={patient} />} 
                     {selectedComponent === "Feedback" && <Feedback patient={patient} />}
                     {selectedComponent === "Help" && <Help patient={patient} />}
                 </div>
