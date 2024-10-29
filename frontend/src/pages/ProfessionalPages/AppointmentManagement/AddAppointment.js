@@ -117,11 +117,47 @@ const AddAppointment = () => {
         <div className="attach-detach-container">
             <h1 className="patient-name">Add Appointment</h1>
             {error && <p style={{ color: "red" }}>{error}</p>}
-            <form className="bg-white" onSubmit={handleSubmit}>
-        
+            <form onSubmit={handleSubmit}>
+                {/* <div className="form-group">
+                  <label htmlFor="patient">Select Patient:</label>
+                    <select
+                        id="patient"
+                        value={selectedPatient}
+                        onChange={handlePatientChange}
+                        disabled={loading}
+                    >
+                        <option value="" disabled>Select a patient</option>
+                        {patients.map((patient) => (
+                            <option key={patient._id} value={patient._id}>
+                                {patient.user.name}
+                            </option>
+                        ))}
+                    </select>
+                </div> */}
+
+                 {/* <div className="form-group"> 
+                    <label htmlFor="session">Select Available Session:</label>
+                    <select
+                        id="session"
+                        value={selectedSession}
+                        onChange={handleSessionChange}
+                        disabled={loading || !selectedPatient}
+                    >
+                        <option value="" disabled>Select a session</option>
+                        {commonSessions.map((session) => (
+                            <option
+                                key={`${session.professional._id}|${session.patient._id}`}
+                                value={`${session.professional._id}|${session.patient._id}`}
+                            >
+                                {new Date(session.professional.date).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} - {session.professional.sessionNumber}
+                                 {console.log(session.professional.date)} *
+                            </option>
+                        ))}
+                    </select>
+                </div> */}  
             <FormControl 
               fullWidth  
-              sx={{paddingRight:"10px", marginBottom: "20px"}}
+              sx={{paddingRight:"10px"}}
                 required>
                 <InputLabel>Patient</InputLabel>
                 <Select
@@ -144,7 +180,7 @@ const AddAppointment = () => {
               fullWidth 
                required
              
-              sx={{paddingRight:"10px", marginBottom: "50px"}}
+              sx={{paddingRight:"10px"}}
                 >
                 <InputLabel>Select Available Session</InputLabel>
                 <Select
@@ -168,7 +204,7 @@ const AddAppointment = () => {
               </FormControl>
 
              
-                <button className="bg--color-primary" disabled={loading || !selectedPatient || !selectedSession}>
+                <button type="submit" disabled={loading || !selectedPatient || !selectedSession}>
                     Add Appointment
                 </button>
             </form>

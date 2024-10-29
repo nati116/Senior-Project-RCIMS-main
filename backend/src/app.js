@@ -20,7 +20,7 @@ const {
 } = require("./controller/AppointmentController");
 const appointmentManagementRoute = require("./routes/AppointmentManagement");
 const feedbackRoute = require("./routes/Feedback");
-// const progressManagementRoute = require("./routes/ProgressManagement");
+const progressManagementRoute = require("./routes/ProgressManagement");
 // const reportRoute = require("./routes/ReportManagement");
 // const chatRoute = require("./routes/ChatRoutes");
 // const predictionRoute = require("./routes/PredictionRoute");
@@ -88,7 +88,7 @@ app.use("/api/patient-history", patientHistoryManagementRoute);
 app.use("/api/schedule", scheduleRoute);
 app.use("/api/appointment", appointmentManagementRoute);
 app.use("/api/feedback", feedbackRoute);
-// app.use("/api/progress", progressManagementRoute);
+app.use("/api/progress", progressManagementRoute);
 // app.use("/api/report", reportRoute);
 // // app.use("/api/chat", chatRoute);
 // app.use("/api/prediction", predictionRoute);

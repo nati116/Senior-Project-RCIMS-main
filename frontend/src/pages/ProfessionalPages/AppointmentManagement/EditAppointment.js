@@ -191,10 +191,10 @@ const EditAppointment = ({ appointmentId, onGoBack }) => {
                 <ArrowBackIcon  onClick={onGoBack}/>
                 <h1 className="patient-name">Edit Appointment</h1>
             </div>
-            <form className="bg-white" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <FormControl 
               fullWidth  
-              sx={{paddingRight:"10px", marginBottom:"20px"}}
+              sx={{paddingRight:"10px"}}
                 required>
                 <InputLabel>Patient</InputLabel>
                 <Select
@@ -214,7 +214,7 @@ const EditAppointment = ({ appointmentId, onGoBack }) => {
               </FormControl> 
               <FormControl 
               fullWidth  
-              sx={{paddingRight:"10px", marginBottom:"50px"}}
+              sx={{paddingRight:"10px"}}
                 required>
                 <InputLabel>Session</InputLabel>
                 <Select
@@ -244,6 +244,56 @@ const EditAppointment = ({ appointmentId, onGoBack }) => {
                         ))}
                 </Select>
               </FormControl>   
+{/* 
+                <div>
+                    <label htmlFor="patient">Patient:</label>
+                    <select
+                        id="patient"
+                        value={selectedPatient}
+                        onChange={handlePatientChange}
+                        disabled={true} // Always disabled when editing
+                     >
+                        <option value="" disabled>
+                            Select a patient
+                        </option>
+                        {patients.map((patient) => (
+                            <option key={patient._id} value={patient._id}>
+                                {patient.user.name}
+                            </option>
+                        ))}
+                    </select>
+                </div> */}
+                {/* <div>
+                    <label htmlFor="session">Select Available Session:</label>
+                    <select
+                        id="session"
+                        value={selectedSession}
+                        onChange={handleSessionChange}
+                        disabled={loading || !selectedPatient}
+                    >
+                        <option value="" disabled>
+                            Select a session
+                        </option>
+                        {commonSessions.map((session) => (
+                            <option
+                                key={`${session.professional._id}|${session.patient._id}`}
+                                value={`${session.professional._id}|${session.patient._id}`}
+                            >
+                                {new Date(
+                                    session.professional.date
+                                ).toLocaleString("en-US", {
+                                    weekday: "long",
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                    timeZone: "UTC",
+                                })}{" "}
+                                - {session.professional.sessionNumber}
+                            </option>
+                        ))}
+                    </select>
+                </div> */}
+                <Box  sx={{display: "flex", width:"100%"}}>
                     <button
                        fullWidth
                         type="submit"
@@ -253,7 +303,10 @@ const EditAppointment = ({ appointmentId, onGoBack }) => {
                     >
                         Update Appointment
                     </button>
-                  
+                    {/* <button fullWidth type="button" onClick={handleGoBack}>
+                        Back
+                    </button> */}
+                </Box>
             </form>
         </div>
     );

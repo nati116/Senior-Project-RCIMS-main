@@ -199,17 +199,17 @@
   padding-bottom: 10px;
   cursor: pointer;
   position: relative;
-  color: #333; /* Inactive color (light gray) */
+  color: #e0e0e0; /* Inactive color (light gray) */
   font-weight: normal;
 }
 
 .tab-button.active {
-  background-color: #F4F4F4;
+  background-color: #e0e0e0;
   border: none;
   font-weight: bold;
   /* color: #003c1c; */
    /* Active text color (dark green) */
-   color: #3A9CED;
+   color: #e0e0e0;
 }
 
 /* Underline when active */
@@ -218,7 +218,7 @@
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: #3A9CED; /* Active underline color (dark green) */
+  background-color: #003c1c; /* Active underline color (dark green) */
   bottom: -1px;
   left: 0;
 }

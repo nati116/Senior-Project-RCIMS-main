@@ -75,30 +75,29 @@ const PatientHistoryPage = ({ patientId, onGoBack }) => {
   };
 
   return (
-    <div className=" bg-white-100">
-  
+    <div className="patient-history-page">
+      {/* <button className="btn btn-back" onClick={onGoBack}>
+        Back
+      </button>
+      <h2>Patient History</h2> */}
         <div class="header">
             <ArrowBackIcon className=".back-button" onClick={onGoBack}/>
-            <h3 className="patient-name"> Patient's History</h3>
+            {/* <h3 className="patient-name">{`${patient.name} ${patient.fatherName} History`}</h3> */}
         </div>
       {loading && <p>Loading history...</p>}
       {error && <p className="error">{error}</p>}
       {!loading && patientHistory.length > 0 && (
   
         <div className="history-list">
-          <Paper elevation={1} sx={{padding: "50px"}}>
+          <Paper elevation={0}>
           {patientHistory.map((historyItem, index) => (
-
-          <Paper sx={{background:"#f8fafc",marginBottom:"20px", maxWidth:"800px", padding:"20px"}}>
             <div key={index} className="history-card">
               {/* <p className="history-number">{index + 1}</p> */}
-              <div className="flex justify-end">
-                <p><strong>Date:</strong> {new Date(historyItem.createdAt).toLocaleDateString()}</p>
-              </div>
-              
-              <p><strong>History Overview:</strong> {historyItem.historyData.slice(0, 50)}...</p>
+              <p><strong>Date:</strong> {new Date(historyItem.createdAt).toLocaleDateString()}</p>
+              <p><strong>Details:</strong> {historyItem.historyData.slice(0, 50)}...</p>
               <div className="button-container">
                 <button
+                  className="btn btn-details"
                   onClick={() => toggleHistoryDetails(index)}
                 >
                   {expandedHistory === index ? "Hide Details" : "View Details"}
@@ -109,21 +108,22 @@ const PatientHistoryPage = ({ patientId, onGoBack }) => {
                 <div className="expanded-details">
                   <Card sx={{minHeight:"450px"}}>
                     <CardContent>
-                    <Typography gutterBottom fontWeight= "bold" variant="h6" component="div">
-                      Full Details
+                      <Typography gutterBottom variant="h5" component="div">
+                        Full Details
                       </Typography>
                       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                        {historyItem.historyData}
                       </Typography>
                     </CardContent>
-                 
+                    <Paper>
+                        
+                    </Paper>
                                   
                   </Card>
                   
                 </div>
               )}
             </div>
-            </Paper>
           ))}
           </Paper>      
 

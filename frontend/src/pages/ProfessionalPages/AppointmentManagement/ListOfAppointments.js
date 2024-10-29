@@ -87,7 +87,7 @@ const ListOfAppointments = ({ appointments, onAppointmentCancelled }) => {
                               
 
                                 <TableCell>
-                                <button className="mt-0" onClick={() => handleDetails(appointment._id)}>
+                                <button className="btn btn-details" onClick={() => handleDetails(appointment._id)}>
                                         Details
                                     </button>
                                 </TableCell>

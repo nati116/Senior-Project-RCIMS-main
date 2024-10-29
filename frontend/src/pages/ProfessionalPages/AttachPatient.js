@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ProfessionalStyles/AttachPatient.css";
-
-import { Snackbar,Paper,TextField, Button, FormControl, InputLabel, Select, MenuItem, Box, OutlinedInput, Alert } from '@mui/material';
+import { Paper,TextField, Button, FormControl, InputLabel, Select, MenuItem, Box, OutlinedInput } from '@mui/material';
 
 const AttachPatient = () => {
     const [currentDepartment, setCurrentDepartment] = useState("");
@@ -53,19 +52,9 @@ const AttachPatient = () => {
         }
     };
 
-    // snackbar functions
-    const [state, setState] = React.useState({
-        open: false,
-        vertical: 'top',
-        horizontal: 'center',
-      });
-      const { vertical, horizontal, open } = state;
-      const handleClose = () => {
-        setState({ ...state, open: false });
-      };
     const handleAttachPatient = async (e) => {
         e.preventDefault();
-        setState({ ...state, open: true });
+
         try {
             const response = await axios.post(
                 "http://localhost:5000/api/professionals/attach-patient",
@@ -76,15 +65,7 @@ const AttachPatient = () => {
                 }
             );
             setMessage(response.data.message);
-            // alert(response.data.message);
-        //     <Snackbar
-        //     anchorOrigin={{ vertical, horizontal }}
-        //     open={open}
-        //     onClose={handleClose}
-        //     message={message}
-        //     key={vertical + horizontal}
-        //     autoHideDuration={1200}
-        //   />
+            alert(response.data.message);
         } catch (error) {
             console.error("Error attaching patient:", error);
             setMessage("Failed to attach patient.");
@@ -96,31 +77,13 @@ const AttachPatient = () => {
          <h3 className="patient-name">Attach Patient to Professional</h3>
            
 
-                
-         <Snackbar
-            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-            open={open}
-            onClose={handleClose}
-           
-            autoHideDuration={1200}
-          >
-             <Alert
-                 sx={{backgroundColor:"#3A9CED", width: "100%",}}
-                 variant="filled"            >
-                  {message} 
-            </Alert>
-        </Snackbar>
+            {message && <p>{message}</p>}
 
-
-
-         
-            <form className="bg-white" onSubmit={handleAttachPatient}>
-            
-             <Paper elevation={0} sx={{ paddingTop:"30px", minWidth:"400px", minHeight:"300px"}} >
-             <label>Select Patient:</label> 
+            <form onSubmit={handleAttachPatient}>
+             <Paper elevation={0} sx={{ paddingTop:"30px", minWidth:"400px", minHeight:"500px"}} >
+    <label>Select Patient:</label> 
 
             <FormControl 
-              sx={{marginBottom:"20px", marginTop: "10px"}}
               fullWidth  
               required
               variant="outlined"
@@ -150,8 +113,6 @@ const AttachPatient = () => {
                 variant="outlined"
                 fullWidth  
                 required
-                sx={{marginBottom:"20px", marginTop: "10px"}}
-                label="Department"
                 >
                 <Select
                    name="Department"
